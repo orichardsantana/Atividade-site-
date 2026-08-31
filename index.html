@@ -1,0 +1,2094 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>História da Informática</title>
+
+<style>
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+:root {
+    --laranja: #ff6a00;
+    --laranja-claro: #ff963d;
+    --fundo: #080808;
+    --card: #131313;
+    --cinza: #aaaaaa;
+    --borda: #292929;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,0.95);
+    border-bottom: 1px solid #222;
+}
+
+nav {
+    max-width: 1250px;
+    height: 75px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--laranja);
+}
+
+.menu {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+}
+
+.menu a {
+    color: #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--laranja);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    max-width: 1250px;
+    margin: auto;
+
+    padding: 120px 30px 70px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero small {
+    color: var(--laranja);
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--laranja);
+}
+
+.hero p {
+    color: var(--cinza);
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.botao {
+    display: inline-block;
+    background: var(--laranja);
+    color: #000;
+    padding: 14px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.botao:hover {
+    background: var(--laranja-claro);
+    transform: translateY(-4px);
+}
+
+.hero-img {
+    position: relative;
+}
+
+.hero-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 18px;
+    opacity: .75;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.titulo span {
+    color: var(--laranja);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo h2 {
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+.titulo h2 span {
+    color: var(--laranja);
+    font-size: inherit;
+    letter-spacing: normal;
+}
+
+.titulo p {
+    color: var(--cinza);
+    max-width: 700px;
+    margin: 15px auto;
+}
+
+
+/* =========================
+   INTRODUÇÃO
+========================= */
+
+.introducao {
+    border-top: 1px solid #222;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.intro-grid p {
+    color: #bbb;
+    font-size: 17px;
+}
+
+
+/* =========================
+   LINHA DO TEMPO
+========================= */
+
+.timeline {
+    position: relative;
+    max-width: 950px;
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    top: 0;
+    bottom: 0;
+    background: var(--laranja);
+}
+
+.evento {
+    width: 50%;
+    padding: 20px 40px;
+}
+
+.evento:nth-child(even) {
+    margin-left: 50%;
+}
+
+.data {
+    color: var(--laranja);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.evento-card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: .3s;
+}
+
+.evento-card:hover {
+    border-color: var(--laranja);
+    transform: translateY(-5px);
+}
+
+.evento-card h3 {
+    margin-bottom: 10px;
+}
+
+.evento-card p {
+    color: var(--cinza);
+}
+
+
+/* =========================
+   GERAÇÕES
+========================= */
+
+.geracoes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.geracao {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--borda);
+    transition: .3s;
+}
+
+.geracao:hover {
+    transform: translateY(-8px);
+    border-color: var(--laranja);
+}
+
+.geracao .numero {
+    color: var(--laranja);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.geracao h3 {
+    margin: 10px 0;
+}
+
+.geracao p {
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+
+/* =========================
+   PERSONALIDADES
+========================= */
+
+.pessoas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.pessoa {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    transition: .4s;
+}
+
+.pessoa:hover {
+    transform: translateY(-8px);
+    border-color: var(--laranja);
+}
+
+.pessoa img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.pessoa-info {
+    padding: 25px;
+}
+
+.genero {
+    color: var(--laranja);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.pessoa h3 {
+    font-size: 22px;
+    margin: 7px 0;
+}
+
+.pessoa small {
+    color: #777;
+}
+
+.pessoa p {
+    color: var(--cinza);
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.pessoa a {
+    color: var(--laranja);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* =========================
+   DESTAQUE MULHERES
+========================= */
+
+.mulheres-destaque {
+    max-width: none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,106,0,.15),
+            transparent
+        );
+}
+
+.mulheres-conteudo {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.mulheres-conteudo h2 {
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.mulheres-conteudo h2 span {
+    color: var(--laranja);
+}
+
+.mulheres-conteudo p {
+    color: var(--cinza);
+    max-width: 750px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   CURIOSIDADES
+========================= */
+
+.curiosidades {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.curiosidade {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.curiosidade:hover {
+    border-color: var(--laranja);
+}
+
+.curiosidade strong {
+    color: var(--laranja);
+}
+
+.curiosidade h3 {
+    margin: 12px 0;
+}
+
+.curiosidade p {
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz {
+    max-width: 850px;
+}
+
+.quiz-box {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    padding: 35px;
+    border-radius: 12px;
+}
+
+.pergunta {
+    margin-bottom: 30px;
+}
+
+.pergunta h3 {
+    margin-bottom: 15px;
+}
+
+.pergunta label {
+    display: block;
+    background: #1b1b1b;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pergunta label:hover {
+    border: 1px solid var(--laranja);
+}
+
+.resultado {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--laranja);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   REFERÊNCIAS
+========================= */
+
+.referencias {
+    border-top: 1px solid #222;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.links a {
+    padding: 18px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    color: #ccc;
+    transition: .3s;
+}
+
+.links a:hover {
+    color: var(--laranja);
+    border-color: var(--laranja);
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    text-align: center;
+    background: #050505;
+    padding: 60px 20px;
+    border-top: 1px solid #222;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #888;
+}
+
+footer small {
+    color: #555;
+}
+
+
+/* =========================
+   VOLTAR AO TOPO
+========================= */
+
+#topo {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--laranja);
+    color: black;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: none;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media(max-width: 1000px) {
+
+    .geracoes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .curiosidades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 800px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        background: #090909;
+
+        display: none;
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 20px;
+    }
+
+    .menu.ativo {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pessoas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .evento,
+    .evento:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 35px;
+    }
+
+}
+
+@media(max-width: 550px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .pessoas,
+    .geracoes,
+    .curiosidades,
+    .links {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo h2 {
+        font-size: 35px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+    História<span>Tech</span>
+</div>
+
+<button class="menu-btn" onclick="abrirMenu()">☰</button>
+
+<ul class="menu" id="menu">
+
+<li><a href="#inicio">Início</a></li>
+<li><a href="#linha">Linha do Tempo</a></li>
+<li><a href="#evolucao">Evolução</a></li>
+<li><a href="#pessoas">Personalidades</a></li>
+<li><a href="#mulheres">Mulheres</a></li>
+<li><a href="#curiosidades">Curiosidades</a></li>
+<li><a href="#quiz">Quiz</a></li>
+<li><a href="#referencias">Referências</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     INÍCIO
+========================= -->
+
+<section class="hero" id="inicio">
+
+<div>
+
+<small>HISTÓRIA DA TECNOLOGIA</small>
+
+<h1>
+A História da
+<span>Informática</span>
+</h1>
+
+<p>
+Da antiga necessidade de realizar cálculos até a inteligência artificial:
+conheça a evolução da informática e das tecnologias que transformaram
+o mundo.
+</p>
+
+<a href="#linha" class="botao">
+Explorar a história →
+</a>
+
+</div>
+
+
+<div class="hero-img">
+
+<img
+src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+alt="Tecnologia e computador">
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INTRODUÇÃO
+========================= -->
+
+<section class="introducao">
+
+<div class="titulo">
+
+<span>01 — INTRODUÇÃO</span>
+
+<h2>
+Uma história construída
+<span>ao longo dos séculos</span>
+</h2>
+
+</div>
+
+
+<div class="intro-grid">
+
+<p>
+A informática é resultado de uma longa evolução tecnológica.
+Antes da existência dos computadores modernos, as pessoas já
+buscavam formas de realizar cálculos e organizar informações
+com mais rapidez e precisão.
+</p>
+
+<p>
+Ao longo dos séculos surgiram máquinas mecânicas, computadores
+eletrônicos, transistores, circuitos integrados, microprocessadores,
+computadores pessoais, internet, smartphones e inteligência artificial.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     LINHA DO TEMPO
+========================= -->
+
+<section id="linha">
+
+<div class="titulo">
+
+<span>02 — LINHA DO TEMPO</span>
+
+<h2>
+A evolução da <span>informática</span>
+</h2>
+
+<p>
+Confira alguns dos principais acontecimentos da história da computação.
+</p>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="evento">
+
+<div class="data">c. 3000 a.C.</div>
+
+<div class="evento-card">
+
+<h3>O Ábaco</h3>
+
+<p>
+Um dos primeiros instrumentos utilizados para auxiliar
+seres humanos na realização de cálculos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1642</div>
+
+<div class="evento-card">
+
+<h3>Pascalina</h3>
+
+<p>
+Blaise Pascal desenvolveu uma máquina mecânica capaz
+de realizar operações matemáticas.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1830s</div>
+
+<div class="evento-card">
+
+<h3>Máquina Analítica</h3>
+
+<p>
+Charles Babbage projetou uma máquina que antecipava
+vários conceitos dos computadores modernos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1843</div>
+
+<div class="evento-card">
+
+<h3>Ada Lovelace</h3>
+
+<p>
+Ada escreveu um algoritmo para a Máquina Analítica,
+tornando-se uma das grandes pioneiras da programação.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1940s</div>
+
+<div class="evento-card">
+
+<h3>Primeiros computadores eletrônicos</h3>
+
+<p>
+Grandes máquinas eletrônicas começaram a ser utilizadas
+para realizar cálculos complexos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1946</div>
+
+<div class="evento-card">
+
+<h3>ENIAC</h3>
+
+<p>
+Um dos primeiros computadores eletrônicos de uso geral.
+Era enorme e utilizava milhares de válvulas.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1971</div>
+
+<div class="evento-card">
+
+<h3>Microprocessador</h3>
+
+<p>
+A criação do microprocessador ajudou a reduzir
+drasticamente o tamanho dos computadores.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1980s</div>
+
+<div class="evento-card">
+
+<h3>Computadores pessoais</h3>
+
+<p>
+Os computadores começaram a se tornar populares
+em empresas, escolas e residências.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">1990s</div>
+
+<div class="evento-card">
+
+<h3>Popularização da Internet</h3>
+
+<p>
+A internet transformou a comunicação e o acesso
+à informação.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">2000s</div>
+
+<div class="evento-card">
+
+<h3>Smartphones</h3>
+
+<p>
+Os dispositivos móveis passaram a fazer parte
+do cotidiano das pessoas.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">2010s</div>
+
+<div class="evento-card">
+
+<h3>Inteligência Artificial</h3>
+
+<p>
+A inteligência artificial e o aprendizado de máquina
+ganharam cada vez mais espaço.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento">
+
+<div class="data">2020s</div>
+
+<div class="evento-card">
+
+<h3>IA Generativa</h3>
+
+<p>
+Ferramentas de inteligência artificial passaram a gerar
+textos, imagens, códigos, vídeos e outros conteúdos.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     EVOLUÇÃO
+========================= -->
+
+<section id="evolucao">
+
+<div class="titulo">
+
+<span>03 — EVOLUÇÃO</span>
+
+<h2>
+As gerações dos <span>computadores</span>
+</h2>
+
+</div>
+
+
+<div class="geracoes">
+
+
+<div class="geracao">
+
+<div class="numero">01</div>
+
+<h3>1ª Geração</h3>
+
+<p>
+Utilizava válvulas eletrônicas.
+Os computadores eram enormes e consumiam muita energia.
+</p>
+
+</div>
+
+
+<div class="geracao">
+
+<div class="numero">02</div>
+
+<h3>2ª Geração</h3>
+
+<p>
+Os transistores substituíram as válvulas,
+tornando os computadores menores e mais confiáveis.
+</p>
+
+</div>
+
+
+<div class="geracao">
+
+<div class="numero">03</div>
+
+<h3>3ª Geração</h3>
+
+<p>
+Os circuitos integrados permitiram reunir
+diversos componentes em pequenos chips.
+</p>
+
+</div>
+
+
+<div class="geracao">
+
+<div class="numero">04</div>
+
+<h3>4ª Geração</h3>
+
+<p>
+O surgimento dos microprocessadores impulsionou
+a criação dos computadores pessoais.
+</p>
+
+</div>
+
+
+<div class="geracao">
+
+<div class="numero">05</div>
+
+<h3>5ª Geração</h3>
+
+<p>
+Inteligência artificial, computação em nuvem,
+automação e dispositivos inteligentes.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PERSONALIDADES
+========================= -->
+
+<section id="pessoas">
+
+<div class="titulo">
+
+<span>04 — GRANDES PERSONALIDADES</span>
+
+<h2>
+12 pessoas que ajudaram a construir
+<span>a informática</span>
+</h2>
+
+<p>
+Seis homens e seis mulheres que participaram
+de diferentes momentos da história da computação.
+</p>
+
+</div>
+
+
+<div class="pessoas">
+
+
+<!-- HOMEM 1 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CharlesBabbage.jpg"
+alt="Charles Babbage">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>Charles Babbage</h3>
+
+<small>1791 — 1871</small>
+
+<p>
+Matemático britânico conhecido por projetar
+a Máquina Analítica, considerada precursora
+dos computadores modernos.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/Charles_Babbage"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HOMEM 2 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Alan_Turing_(1951).jpg"
+alt="Alan Turing">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>Alan Turing</h3>
+
+<small>1912 — 1954</small>
+
+<p>
+Matemático e cientista da computação que ajudou
+a estabelecer fundamentos teóricos da computação.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/Alan_Turing"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HOMEM 3 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/JohnvonNeumann-LosAlamos.jpg"
+alt="John von Neumann">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>John von Neumann</h3>
+
+<small>1903 — 1957</small>
+
+<p>
+Matemático que teve grande influência na arquitetura
+dos computadores e no conceito de programa armazenado.
+</p>
+
+<a href="https://en.wikipedia.org/wiki/John_von_Neumann"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HOMEM 4 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/J._Presper_Eckert.jpg"
+alt="John Presper Eckert">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>John Presper Eckert</h3>
+
+<small>1919 — 1995</small>
+
+<p>
+Engenheiro eletrônico e um dos principais responsáveis
+pelo desenvolvimento do ENIAC.
+</p>
+
+<a href="https://en.wikipedia.org/wiki/J._Presper_Eckert"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HOMEM 5 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Mauchly.jpg"
+alt="John Mauchly">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>John Mauchly</h3>
+
+<small>1907 — 1980</small>
+
+<p>
+Físico e engenheiro que trabalhou com Eckert
+no desenvolvimento do ENIAC.
+</p>
+
+<a href="https://en.wikipedia.org/wiki/John_Mauchly"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- HOMEM 6 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Steve_Jobs_Headshot_2010-CROP.jpg"
+alt="Steve Jobs">
+
+<div class="pessoa-info">
+
+<div class="genero">HOMEM</div>
+
+<h3>Steve Jobs</h3>
+
+<small>1955 — 2011</small>
+
+<p>
+Cofundador da Apple e uma das figuras que ajudaram
+a popularizar computadores pessoais e tecnologias digitais.
+</p>
+
+<a href="https://en.wikipedia.org/wiki/Steve_Jobs"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 1 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ada_Lovelace.jpg"
+alt="Ada Lovelace">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Ada Lovelace</h3>
+
+<small>1815 — 1852</small>
+
+<p>
+Matemática inglesa que escreveu um algoritmo
+para a Máquina Analítica de Charles Babbage.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/File:Ada_Lovelace.jpg"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 2 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Grace_Hopper.jpg"
+alt="Grace Hopper">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Grace Hopper</h3>
+
+<small>1906 — 1992</small>
+
+<p>
+Cientista da computação que teve participação importante
+no desenvolvimento de compiladores e do COBOL.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/Grace_Hopper"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 3 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hedy_Lamarr%2C_1939.jpg"
+alt="Hedy Lamarr">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Hedy Lamarr</h3>
+
+<small>1914 — 2000</small>
+
+<p>
+Inventora que desenvolveu, com George Antheil,
+uma técnica de salto de frequência para comunicação.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/File:Hedy_Lamarr,_1939.jpg"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 4 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Katherine_Johnson_1983.jpg"
+alt="Katherine Johnson">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Katherine Johnson</h3>
+
+<small>1918 — 2020</small>
+
+<p>
+Matemática da NASA cujos cálculos foram fundamentais
+para importantes missões espaciais.
+</p>
+
+<a href="https://www.nasa.gov/people/katherine-johnson/"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 5 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Margaret_Hamilton_1995.jpg"
+alt="Margaret Hamilton">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Margaret Hamilton</h3>
+
+<small>1936 —</small>
+
+<p>
+Engenheira de software que liderou o desenvolvimento
+do software de voo das missões Apollo.
+</p>
+
+<a href="https://commons.wikimedia.org/wiki/Category:Margaret_Hamilton"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MULHER 6 -->
+
+<div class="pessoa">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Radia_Perlman.jpg"
+alt="Radia Perlman">
+
+<div class="pessoa-info">
+
+<div class="genero">MULHER</div>
+
+<h3>Radia Perlman</h3>
+
+<small>1951 —</small>
+
+<p>
+Cientista da computação conhecida por suas contribuições
+para redes de computadores e pelo Spanning Tree Protocol.
+</p>
+
+<a href="https://en.wikipedia.org/wiki/Radia_Perlman"
+target="_blank">
+Saiba mais →
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MULHERES
+========================= -->
+
+<section id="mulheres" class="mulheres-destaque">
+
+<div class="mulheres-conteudo">
+
+<span>05 — MULHERES NA COMPUTAÇÃO</span>
+
+<h2>
+A história da computação também foi escrita por
+<span>mulheres.</span>
+</h2>
+
+<p>
+Desde Ada Lovelace, passando por Grace Hopper, Hedy Lamarr,
+Katherine Johnson, Margaret Hamilton e Radia Perlman,
+mulheres participaram de descobertas e projetos importantes
+para o desenvolvimento da tecnologia.
+</p>
+
+<a
+href="https://www.gov.br/anatel/pt-br/assuntos/noticias/hedy-ada-e-grace-o-legado-de-mulheres-que-mudaram-a-forma-como-o-mundo-se-comunica"
+target="_blank"
+class="botao">
+Conheça mais histórias →
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CURIOSIDADES
+========================= -->
+
+<section id="curiosidades">
+
+<div class="titulo">
+
+<span>06 — CURIOSIDADES</span>
+
+<h2>
+Você <span>sabia?</span>
+</h2>
+
+</div>
+
+
+<div class="curiosidades">
+
+
+<div class="curiosidade">
+
+<strong>01</strong>
+
+<h3>O primeiro "bug"</h3>
+
+<p>
+Uma mariposa foi encontrada presa em um relé do
+Harvard Mark II em 1947. O episódio ficou famoso
+na história da computação.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>02</strong>
+
+<h3>Computadores gigantes</h3>
+
+<p>
+Os primeiros computadores eletrônicos ocupavam
+salas inteiras.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>03</strong>
+
+<h3>A primeira programadora</h3>
+
+<p>
+Ada Lovelace é frequentemente reconhecida como
+pioneira da programação.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>04</strong>
+
+<h3>Mulheres no ENIAC</h3>
+
+<p>
+Mulheres participaram da programação do ENIAC
+durante seus primeiros anos.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>05</strong>
+
+<h3>Computadores no espaço</h3>
+
+<p>
+Sistemas computacionais foram fundamentais para
+os cálculos das missões espaciais.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>06</strong>
+
+<h3>Internet</h3>
+
+<p>
+A internet surgiu a partir da evolução de diferentes
+projetos e redes de comunicação entre computadores.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>07</strong>
+
+<h3>Do tamanho de uma sala ao bolso</h3>
+
+<p>
+Os smartphones atuais possuem enorme capacidade
+de processamento em comparação com computadores antigos.
+</p>
+
+</div>
+
+
+<div class="curiosidade">
+
+<strong>08</strong>
+
+<h3>Inteligência Artificial</h3>
+
+<p>
+Atualmente sistemas de IA conseguem gerar textos,
+imagens, códigos, vídeos e outros conteúdos.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section id="quiz" class="quiz">
+
+<div class="titulo">
+
+<span>07 — TESTE SEUS CONHECIMENTOS</span>
+
+<h2>
+Quiz da <span>Informática</span>
+</h2>
+
+</div>
+
+
+<div class="quiz-box">
+
+<form id="formQuiz">
+
+
+<div class="pergunta">
+
+<h3>1. Quem é considerada pioneira da programação?</h3>
+
+<label>
+<input type="radio" name="q1" value="a">
+Ada Lovelace
+</label>
+
+<label>
+<input type="radio" name="q1" value="b">
+Hedy Lamarr
+</label>
+
+<label>
+<input type="radio" name="q1" value="c">
+Katherine Johnson
+</label>
+
+</div>
+
+
+<div class="pergunta">
+
+<h3>2. O que foi o ENIAC?</h3>
+
+<label>
+<input type="radio" name="q2" value="a">
+Um dos primeiros computadores eletrônicos de uso geral
+</label>
+
+<label>
+<input type="radio" name="q2" value="b">
+Um smartphone
+</label>
+
+<label>
+<input type="radio" name="q2" value="c">
+Uma rede social
+</label>
+
+</div>
+
+
+<div class="pergunta">
+
+<h3>3. Quem projetou a Máquina Analítica?</h3>
+
+<label>
+<input type="radio" name="q3" value="a">
+Steve Jobs
+</label>
+
+<label>
+<input type="radio" name="q3" value="b">
+Charles Babbage
+</label>
+
+<label>
+<input type="radio" name="q3" value="c">
+Alan Turing
+</label>
+
+</div>
+
+
+<div class="pergunta">
+
+<h3>4. O que substituiu as válvulas na segunda geração?</h3>
+
+<label>
+<input type="radio" name="q4" value="a">
+Internet
+</label>
+
+<label>
+<input type="radio" name="q4" value="b">
+Transistores
+</label>
+
+<label>
+<input type="radio" name="q4" value="c">
+Inteligência Artificial
+</label>
+
+</div>
+
+
+<div class="pergunta">
+
+<h3>5. Quem liderou o desenvolvimento do software das missões Apollo?</h3>
+
+<label>
+<input type="radio" name="q5" value="a">
+Margaret Hamilton
+</label>
+
+<label>
+<input type="radio" name="q5" value="b">
+Ada Lovelace
+</label>
+
+<label>
+<input type="radio" name="q5" value="c">
+Grace Hopper
+</label>
+
+</div>
+
+
+<button type="submit" class="botao">
+Ver resultado
+</button>
+
+</form>
+
+
+<div id="resultado" class="resultado"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     REFERÊNCIAS
+========================= -->
+
+<section id="referencias" class="referencias">
+
+<div class="titulo">
+
+<span>08 — REFERÊNCIAS</span>
+
+<h2>
+Fontes e <span>referências</span>
+</h2>
+
+</div>
+
+
+<div class="links">
+
+<a href="https://commons.wikimedia.org/" target="_blank">
+Wikimedia Commons →
+</a>
+
+<a href="https://www.computerhistory.org/" target="_blank">
+Computer History Museum →
+</a>
+
+<a href="https://www.nasa.gov/" target="_blank">
+NASA →
+</a>
+
+<a href="https://www.ibm.com/history" target="_blank">
+IBM History →
+</a>
+
+<a href="https://www.britannica.com/" target="_blank">
+Encyclopaedia Britannica →
+</a>
+
+<a href="https://www.gov.br/anatel/" target="_blank">
+ANATEL →
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     RODAPÉ
+========================= -->
+
+<footer>
+
+<div class="logo">
+História<span>Tech</span>
+</div>
+
+<p>
+História da Informática — Uma viagem pela evolução da tecnologia.
+</p>
+
+<small>
+Projeto desenvolvido para fins educacionais.
+</small>
+
+</footer>
+
+
+<button id="topo" onclick="voltarTopo()">
+↑
+</button>
+
+
+<script>
+
+/* =========================
+   MENU MOBILE
+========================= */
+
+function abrirMenu() {
+
+    const menu = document.getElementById("menu");
+
+    menu.classList.toggle("ativo");
+
+}
+
+
+/* =========================
+   VOLTAR AO TOPO
+========================= */
+
+window.addEventListener("scroll", function() {
+
+    const botao = document.getElementById("topo");
+
+    if (window.scrollY > 500) {
+
+        botao.style.display = "block";
+
+    } else {
+
+        botao.style.display = "none";
+
+    }
+
+});
+
+
+function voltarTopo() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+document.getElementById("formQuiz").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let pontos = 0;
+
+    const respostas = {
+
+        q1: "a",
+        q2: "a",
+        q3: "b",
+        q4: "b",
+        q5: "a"
+
+    };
+
+
+    for (let pergunta in respostas) {
+
+        const resposta = document.querySelector(
+            `input[name="${pergunta}"]:checked`
+        );
+
+        if (resposta && resposta.value === respostas[pergunta]) {
+
+            pontos++;
+
+        }
+
+    }
+
+
+    const resultado = document.getElementById("resultado");
+
+
+    if (pontos === 5) {
+
+        resultado.innerHTML =
+        "🏆 Parabéns! Você acertou todas as questões!";
+
+    }
+
+    else if (pontos >= 3) {
+
+        resultado.innerHTML =
+        `👏 Muito bem! Você acertou ${pontos} de 5 questões.`;
+
+    }
+
+    else {
+
+        resultado.innerHTML =
+        `💻 Você acertou ${pontos} de 5. Continue estudando!`;
+
+    }
+
+});
+
+
+/* =========================
+   ANIMAÇÃO AO ROLAR
+========================= */
+
+const elementos = document.querySelectorAll(
+    ".pessoa, .geracao, .curiosidade, .evento-card"
+);
+
+const observador = new IntersectionObserver(
+
+    function(entries) {
+
+        entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.1
+    }
+
+);
+
+
+elementos.forEach(function(elemento) {
+
+    elemento.style.opacity = "0";
+    elemento.style.transform = "translateY(30px)";
+    elemento.style.transition = "0.6s ease";
+
+    observador.observe(elemento);
+
+});
+
+</script>
+
+</body>
+</html>
+```
